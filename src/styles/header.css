@@ -19,11 +19,14 @@
   align-items: center;
   width: 36px;
   height: 36px;
+  border: none;
+  background-color: transparent;
 }
 
 .header-button-darkmood img{
-  width: 16px;
+  width: 18px;
   height: 18px;
-  color: var(--color-grey-2);
   cursor: pointer;
+  border: none;
+  
 }

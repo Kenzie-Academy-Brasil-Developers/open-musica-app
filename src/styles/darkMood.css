@@ -1,0 +1,26 @@
+.darkmood{
+  background-color: var(--color-grey-0);
+  color: var(--color-grey-8);
+
+}
+
+.image-darkmood-moon {
+  background-image: url("../assets/img/moon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.image-darkmood-sun {
+  filter: grayscale(100%);
+  background-image: url("../assets/img/sun.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.hide-image {
+  filter: blur(0);
+}
+
+

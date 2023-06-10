@@ -1,0 +1,23 @@
+@media (min-width: 1024px){
+  .header__container{
+    padding: 100px 32%;
+  }
+  .section__container-one{
+    padding: 0 32%;
+ }
+  .section__container-two{
+    padding: 0 32%;
+ }
+  .section__container-three{
+    padding: 0 32%;
+  
+  }
+  .cards__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+}
+
