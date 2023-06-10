@@ -84,19 +84,27 @@ function addFilters(categories, products) {
   inputPrice.addEventListener("input", () => {
     inputValue = inputPrice.value;
     priceParagraph.textContent = `Até R$ ${inputValue}`;
-  
-    filteredArray = products.filter(product => product.price <= inputValue);
-    renderCards(filteredArray);
+    applyFilters();
   });
-  
-  
+
   buttonCategory.forEach((button) => {
     button.addEventListener("click", () => {
       categoryIndex = categories.findIndex(category => category === button.innerText);
-      filteredArray = categoryIndex === 0 ? [...products] : products.filter(product => product.category === categoryIndex);
-      renderCards(filteredArray)
+      applyFilters();
+      inputPrice.value = inputValue;
     });
   });
 
+  function applyFilters() {
+    if (categoryIndex === 0) {
+      filteredArray = products.filter(product => product.price <= inputValue);
+    } else {
+      filteredArray = products.filter(product => product.category === categoryIndex && product.price <= inputValue);
+    }
+    
+    renderCards(filteredArray);
+  }
 }
-addFilters(categories, products)
+
+addFilters(categories, products);
+

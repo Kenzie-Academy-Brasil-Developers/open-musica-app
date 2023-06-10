@@ -1,6 +1,7 @@
 .darkmood{
   background-color: var(--color-grey-0);
-  
+  color: aqua;
+ 
 
 }
 
@@ -19,8 +20,5 @@
 
 }
 
-.hide-image {
-  filter: blur(0);
-}
 
 

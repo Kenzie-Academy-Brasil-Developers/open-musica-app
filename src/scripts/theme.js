@@ -3,10 +3,14 @@
 function darkMood(){
   const buttonDarkMood = document.querySelector(".header-button-darkmood")
   const body = document.querySelector(".darkmood")
+  const headerContainer = document.querySelector(".header__container")
 
   buttonDarkMood.addEventListener("click",() => {
     body.classList.toggle("darkmood") 
+    headerContainer.classList.toggle("darkmood") 
   })
+
+ 
 }
 darkMood()
 
