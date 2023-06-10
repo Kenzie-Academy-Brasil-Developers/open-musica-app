@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/styles/globalStyles.css" />
     <link rel="stylesheet" href="./src/styles/header.css" />
-    <link rel="stylesheet" href="./src/styles/cards.css" />
     <link rel="stylesheet" href="./src/styles/index.css" />
-    <link rel="stylesheet" href="./src/styles/mediaqueries.css" />
+    <link rel="stylesheet" href="./src/styles/cards.css" />
     <link rel="stylesheet" href="./src/styles/darkMood.css" />
+    <link rel="stylesheet" href="./src/styles/mediaqueries.css" />
     <title>Open Music</title>
   </head>
   <body class="darkmood">
@@ -21,20 +21,22 @@
     </header>
     <main>
       <section class="section__container-one">
-        <h2 class="section-one-title">Gênero Musical</h2>
-        <div class="group__buttons">
-          <button class="btn-music">Todos</button>
-          <button class="btn-music">Pop</button>
-          <button class="btn-music">MP3</button>
-          <button class="btn-music">Forró</button>
-          <button class="btn-music">Samba</button>
-          <button class="btn-music">Baião</button>
-          <button class="btn-music">Rap</button>
-          <button class="btn-music">Hip-Hop</button>
-          <button class="btn-music">Rock</button>
-          <button class="btn-music">Reggae</button>
-          <button class="btn-music">Country</button>
-          <button class="btn-music">Gospel</button>
+        <div class="div__container-one">
+          <h2 class="section-one-title">Gênero Musical</h2>
+          <ul class="group__buttons">
+            <!-- <button class="btn-music">Todos</button>
+            <button class="btn-music">Pop</button>
+            <button class="btn-music">MP3</button>
+            <button class="btn-music">Forró</button>
+            <button class="btn-music">Samba</button>
+            <button class="btn-music">Baião</button>
+            <button class="btn-music">Rap</button>
+            <button class="btn-music">Hip-Hop</button>
+            <button class="btn-music">Rock</button>
+            <button class="btn-music">Reggae</button>
+            <button class="btn-music">Country</button>
+            <button class="btn-music">Gospel</button> -->
+          </ul>
         </div>
       </section>
 
@@ -48,44 +50,11 @@
 
       <section class="section__container-three">
         <h2 class="section-three-title">Albuns Encontrados</h2>
-        <div class="cards__container">
-          <div class="card-box">
-            <figure>
-              <img src="./src/assets/img/1.jpg">
-            </figure>
-            <div class="div-card">
-              <div class="card-name-album">
-                <h3 class="album-title">Nirvana</h3>
-                <h3 class="album-age">1990</h3>
-              </div>
-              <h3 class="title-name-band">Nirvana Discografia</h3>
-              <div class="card-value-button">
-                <p class="card-value">R$ 240.00</p>
-                <button class="card-button">Comprar</button>
-              </div>
-            </div>
-          </div>
-          <div class="card-box">
-            <figure>
-              <img src="./src/assets/img/1.jpg">
-            </figure>
-            <div class="div-card">
-              <div class="card-name-album">
-                <h3 class="album-title">Nirvana</h3>
-                <h3 class="album-age">1990</h3>
-              </div>
-              <h3 class="title-name-band">Nirvana Discografia</h3>
-              <div class="card-value-button">
-                <p class="card-value">R$ 240.00</p>
-                <button class="card-button">Comprar</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="cards__container"></div>
       </section>
     </main>
-    <script src="./src/scripts/theme.js"></script>
-    <script src="./src/scripts/productsData.js"></script>
-    <script src="./src/scripts/index.js"></script>
+    <script type="module" src="./src/scripts/theme.js"></script>
+    <script type="module" src="./src/scripts/productsData.js"></script>
+    <script type="module" src="./src/scripts/index.js"></script>
   </body>
 </html>

@@ -6,12 +6,14 @@
   padding: 0 5%;
   gap: 20px;
   margin-bottom: 30px;
+  height: 100%;
 }
 
 .section-one-title{
   font-weight: var(--weight-1);
   font-size: var(--font-2);
   color: var(--color-grey-1);
+  margin-bottom: 40px;
 }
 
 .group__buttons{
@@ -34,6 +36,7 @@
   align-items: center;
   padding: 0 8px;
   height: 32px;
+  cursor: pointer;
 }
 
 .section__container-two{
@@ -53,6 +56,8 @@
   font-weight: var(--weight-1);
   font-size: var(--font-2);
   color: var(--color-grey-1);
+  margin-bottom: 20px;
+
 }
 
 .div-text{
