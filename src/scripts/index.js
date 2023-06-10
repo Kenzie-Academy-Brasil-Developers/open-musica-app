@@ -1,47 +1,57 @@
 import {products,categories} from "./productsData.js"
 
-function createCard(product){
-  const cardsContainer = document.querySelector(".cards__container")
+
+function createCard(product) {
+  const cardBox = document.createElement("div");
+  const figure = document.createElement("figure");
+  const image = document.createElement("img");
+  const divCard = document.createElement("div");
+  const cardNameAlbum = document.createElement("div");
+  const albumTitle = document.createElement("h3");
+  const albumAge = document.createElement("p");
+  const titleNameBand = document.createElement("h3");
+  const cardValueButton = document.createElement("div");
+  const cardValue = document.createElement("p");
+  const cardButton = document.createElement("button");
+
+  cardBox.classList.add("card-box");
+  divCard.classList.add("div-card");
+  cardNameAlbum.classList.add("card-name-album");
+  cardValueButton.classList.add("card-value-button");
+  albumTitle.classList.add("album-title");
+  albumAge.classList.add("album-age");
+  cardValue.classList.add("card-value");
+  cardButton.classList.add("card-button");
+
+  image.src = product.img;
+  albumTitle.innerText = product.band;
+  albumAge.innerText = product.year;
+  titleNameBand.innerText = product.title;
+  cardValue.innerText = `R$ ${product.price}.00`;
+  cardButton.innerText = "Comprar";
+
+  cardValueButton.append(cardValue, cardButton);
+  cardNameAlbum.append(albumTitle, albumAge);
+  divCard.append(cardNameAlbum, titleNameBand, cardValueButton);
+  figure.appendChild(image);
+  cardBox.append(figure, divCard);
+
+  return cardBox;
+}
+
+function renderCards(products) {
+  const cardsContainer = document.querySelector(".cards__container");
+
   cardsContainer.innerHTML = "";
-  
-  products.forEach(product => {
-  const cardBox = document.createElement("div")
-  const figure = document.createElement("figure")
-  const image = document.createElement("img")
-  const divCard = document.createElement("div")
-  const cardNameAlbum = document.createElement("div")
-  const albumTitle = document.createElement("h3")
-  const albumAge = document.createElement("p")
-  const titleNameBand = document.createElement("h3")
-  const cardValueButton = document.createElement("div")
-  const cardValue = document.createElement("p")
-  const cardButton = document.createElement("button")
 
-  cardBox.classList.add("card-box")
-  divCard.classList.add("div-card")
-  cardNameAlbum.classList.add("card-name-album")
-  cardValueButton.classList.add("card-value-button")
-  albumTitle.classList.add("album-title")
-  albumAge.classList.add("album-age")
-  cardValue.classList.add("card-value")
-  cardButton.classList.add("card-button")
-
-  image.src = product.img
-  albumTitle.innerText = product.band
-  albumAge.innerText = product.year
-  titleNameBand.innerText = product.title
-  cardValue.innerText = `R$ ${product.price}.00`
-  cardButton.innerText = "Comprar"
-
-  cardValueButton.append(cardValue,cardButton)
-  cardNameAlbum.append(albumTitle,albumAge)
-  divCard.append(cardNameAlbum,titleNameBand,cardValueButton)
-  figure.appendChild(image)
-  cardBox.append(figure,divCard)
-  cardsContainer.appendChild(cardBox)
+  products.forEach((product) => {
+    const card = createCard(product);
+    cardsContainer.appendChild(card);
   });
 }
-createCard(products)
+
+renderCards(products);
+
 
 
 function createButtons(category){
@@ -61,18 +71,32 @@ function createButtons(category){
 }
 createButtons(categories)
 
+
 function addFilters(categories, products) {
   const buttonCategory = document.querySelectorAll(".btn-music");
+  const inputPrice = document.querySelector("#precoInput");
+  const priceParagraph = document.querySelector(".div-text");
 
+  let filteredArray = products;
+  let categoryIndex = 0;
+  let inputValue = inputPrice.value;
+
+  inputPrice.addEventListener("input", () => {
+    inputValue = inputPrice.value;
+    priceParagraph.textContent = `Até R$ ${inputValue}`;
+  
+    filteredArray = products.filter(product => product.price <= inputValue);
+    renderCards(filteredArray);
+  });
+  
+  
   buttonCategory.forEach((button) => {
     button.addEventListener("click", () => {
-      const index = categories.findIndex(category => category === button.innerText);
-      const filter = products.filter(product => product.category === index)
-      console.log(filter);
-      createCard(filter);
+      categoryIndex = categories.findIndex(category => category === button.innerText);
+      filteredArray = categoryIndex === 0 ? [...products] : products.filter(product => product.category === categoryIndex);
+      renderCards(filteredArray)
     });
   });
 
 }
 addFilters(categories, products)
-console.log()
