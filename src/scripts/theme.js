@@ -3,11 +3,11 @@
 function darkMood(){
   const buttonDarkMood = document.querySelector(".header-button-darkmood")
   const body = document.querySelector(".darkmood")
-  const headerContainer = document.querySelector(".header__container")
+  
 
   buttonDarkMood.addEventListener("click",() => {
     body.classList.toggle("darkmood") 
-    headerContainer.classList.toggle("darkmood") 
+    
   })
 
  
@@ -18,7 +18,9 @@ darkMood()
 
 function changeImageDark() {
   const buttonDarkMood = document.querySelector(".header-button-darkmood");
-  const image = document.querySelector(".image-darkmood");
+  let image = document.createElement("img");
+  image.classList.add("image-darkmood-sun")
+  buttonDarkMood.appendChild(image)
 
   buttonDarkMood.addEventListener("click", () => {
     image.classList.toggle("image-darkmood-moon")

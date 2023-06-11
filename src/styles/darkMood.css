@@ -6,19 +6,29 @@
 }
 
 .image-darkmood-moon {
-  background-image: url("../assets/img/moon.svg");
+  background-image: url("../assets/img/moon.png");
   background-repeat: no-repeat;
   background-size: cover;
 
 }
 
 .image-darkmood-sun {
-  filter: grayscale(100%);
-  background-image: url("../assets/img/sun.svg");
+  border-color: transparent;
+  background-image: url("../assets/img/sun.png");
   background-repeat: no-repeat;
   background-size: cover;
 
 }
+.header-button-darkmood img{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  
+}
 
-
+img image-darkmood-sun:active, image-darkmood-sun:selected, image-darkmood-sun:visited {
+  border: none;
+  outline: none;
+}
 
