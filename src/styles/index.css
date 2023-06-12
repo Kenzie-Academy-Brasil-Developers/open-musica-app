@@ -43,8 +43,8 @@
   color: var(--color-grey-8);
 }
 
-.btn-music:active,
-.btn-music:focus{
+
+.click{
   background-color: var(--color-grey-1);
   color: var(--color-grey-8);
 }

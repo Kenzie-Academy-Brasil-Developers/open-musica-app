@@ -27,7 +27,6 @@
   width: 308px;
   height: 100%;
   border-radius: var(--radius-1);
-  
 }
 
 .card-box figure{
@@ -38,14 +37,12 @@
   width: 308px;
   height: 113px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(.jpg), url(.jpg);
-  border-radius: 4px 4px 0px 0px;
-  
+  border-radius: 4px 4px 0px 0px; 
 }
 
 .div-card{
   display: flex;
   flex-direction: column;
- 
   padding: 20px 16px;
   gap: 20px;
   background-color: var(--color-grey-8);
@@ -102,9 +99,6 @@
   border-radius: var(--radius-1);
   cursor: pointer;
   font-family: var(--font-family);
-
-
-
 }
 
 @media (min-width: 1024px){
@@ -126,5 +120,4 @@
     flex-wrap: wrap;
     justify-content: space-between; 
   }
-
 }

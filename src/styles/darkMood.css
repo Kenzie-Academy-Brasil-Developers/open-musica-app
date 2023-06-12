@@ -17,8 +17,8 @@
   border: 1.5px solid var(--color-grey-9);
 }
 
-.backgroundButtons:active{
-  border: 1.5px dashed var(--color-grey-9);
+.clicked{
+  border: 1.5px solid var(--color-grey-9);
 }
 
 .buttonsCard{
