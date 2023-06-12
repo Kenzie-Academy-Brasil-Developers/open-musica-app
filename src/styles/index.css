@@ -38,6 +38,16 @@
   height: 32px;
   cursor: pointer;
 }
+.btn-music:hover{
+  background-color: var(--color-grey-1);
+  color: var(--color-grey-8);
+}
+
+.btn-music:active,
+.btn-music:focus{
+  background-color: var(--color-grey-1);
+  color: var(--color-grey-8);
+}
 
 .section__container-two{
   display: flex;
@@ -66,17 +76,14 @@
   color: var(--color-grey-2);
 }
 
-  /* Removendo a cor de fundo */
-  input[type="range"] {
-    background-color: transparent;
+
+
+ 
+  #precoInput::-webkit-slider-thumb {
+    appearance: none;
+    color: aliceblue;
   }
 
-  /* Removendo a cor da faixa do slider */
-  input[type="range"]::-webkit-slider-runnable-track {
-    background-color: transparent;
-  }
-
-  /* Removendo a cor do indicador do slider */
-  input[type="range"]::-webkit-slider-thumb {
-    background-color: transparent;
+  input::-webkit-slider-thumb{
+    appearance: none;
   }

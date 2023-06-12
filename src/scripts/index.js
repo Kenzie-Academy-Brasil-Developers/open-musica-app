@@ -16,17 +16,17 @@ function createCard(product) {
 
   cardBox.classList.add("card-box");
   divCard.classList.add("div-card");
-  divCard.classList.add("colorCards");
+  // divCard.classList.add("colorCards");
   cardNameAlbum.classList.add("card-name-album");
   cardValueButton.classList.add("card-value-button");
   albumTitle.classList.add("album-title");
-  albumTitle.classList.add("textCardsColor");
+  // albumTitle.classList.add("textCardsColor");
   albumAge.classList.add("album-age");
-  albumAge.classList.add("textCardsColor");
+  // albumAge.classList.add("textCardsColor");
   cardValue.classList.add("card-value");
-  cardValue.classList.add("textcolor");
+  // cardValue.classList.add("textcolor");
   cardButton.classList.add("card-button");
-  cardButton.classList.add("buttonsCard");
+  // cardButton.classList.add("buttonsCard");
 
   image.src = product.img;
   albumTitle.innerText = product.band;
@@ -41,6 +41,7 @@ function createCard(product) {
   figure.appendChild(image);
   cardBox.append(figure, divCard);
 
+  
   return cardBox;
 }
 
@@ -67,7 +68,7 @@ function createButtons(category){
     const buttonCategory = document.createElement("li")
 
     buttonCategory.classList.add("btn-music")
-    buttonCategory.classList.add("backgroundButtons")
+    // buttonCategory.classList.add("backgroundButtons")
 
     buttonCategory.innerText = category
     buttonCategory.setAttribute("value", category);
@@ -75,12 +76,12 @@ function createButtons(category){
     listButtons.appendChild(buttonCategory)
     
   });
-  changeImageDark();
+  
 }
 createButtons(categories)
 
 
-function addFilters(categories, products) {
+export function addFilters(categories, products) {
   const buttonCategory = document.querySelectorAll(".btn-music");
   const inputPrice = document.querySelector("#precoInput");
   const priceParagraph = document.querySelector(".div-text");
@@ -89,10 +90,13 @@ function addFilters(categories, products) {
   let categoryIndex = 0;
   let inputValue = inputPrice.value;
 
-  inputPrice.addEventListener("input", () => {
+  inputPrice.addEventListener("input", (e) => {
+    e.preventDefault()
     inputValue = inputPrice.value;
     priceParagraph.textContent = `Até R$ ${inputValue}`;
     applyFilters();
+  
+
   });
 
   buttonCategory.forEach((button) => {
@@ -100,6 +104,8 @@ function addFilters(categories, products) {
       categoryIndex = categories.findIndex(category => category === button.innerText);
       applyFilters();
       inputPrice.value = inputValue;
+      
+
     });
   });
 
@@ -111,6 +117,8 @@ function addFilters(categories, products) {
     }
     
     renderCards(filteredArray);
+    
+
   }
 }
 
