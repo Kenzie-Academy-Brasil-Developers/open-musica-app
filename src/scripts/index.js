@@ -16,12 +16,17 @@ function createCard(product) {
 
   cardBox.classList.add("card-box");
   divCard.classList.add("div-card");
+  divCard.classList.add("colorCards");
   cardNameAlbum.classList.add("card-name-album");
   cardValueButton.classList.add("card-value-button");
   albumTitle.classList.add("album-title");
+  albumTitle.classList.add("textCardsColor");
   albumAge.classList.add("album-age");
+  albumAge.classList.add("textCardsColor");
   cardValue.classList.add("card-value");
+  cardValue.classList.add("textcolor");
   cardButton.classList.add("card-button");
+  cardButton.classList.add("buttonsCard");
 
   image.src = product.img;
   albumTitle.innerText = product.band;
@@ -48,6 +53,7 @@ function renderCards(products) {
     const card = createCard(product);
     cardsContainer.appendChild(card);
   });
+  
 }
 
 renderCards(products);
