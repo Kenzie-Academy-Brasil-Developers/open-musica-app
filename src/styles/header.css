@@ -20,6 +20,14 @@
   width: 36px;
   height: 36px;
   border: none;
-  background-color: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.invisible{
+  display: none;
+}
+
+.backgroundButtonSun{
+  background-color: var(--color-grey-1);
 }
 

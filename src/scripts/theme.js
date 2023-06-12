@@ -16,17 +16,19 @@ darkMood()
 
 
 
-function changeImageDark() {
-  const buttonDarkMood = document.querySelector(".header-button-darkmood");
-  let image = document.createElement("img");
-  image.classList.add("image-darkmood-sun")
-  buttonDarkMood.appendChild(image)
+export function changeImageDark() {
+    const buttonDarkMood = document.querySelector(".header-button-darkmood");
+    let btnsun = document.querySelector(".image-darkmood-sun");
+    let btnmoon = document.querySelector(".image-darkmood-moon");
+    let buttonCategory = document.querySelectorAll(".btn-music")
 
-  buttonDarkMood.addEventListener("click", () => {
-    image.classList.toggle("image-darkmood-moon")
-    image.classList.toggle("image-darkmood-sun")
-  });
-}
-
-changeImageDark();
-
+  
+    buttonDarkMood.addEventListener("click", () => {
+      buttonCategory.forEach(button => {button.classList.toggle("backgroundButtons")});
+      buttonDarkMood.classList.toggle("backgroundButtonSun");
+      btnsun.classList.toggle("invisible")
+      btnmoon.classList.toggle("invisible")
+    });
+  }
+  
+  changeImageDark();

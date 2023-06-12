@@ -1,34 +1,19 @@
 .darkmood{
   background-color: var(--color-grey-0);
   color: aqua;
- 
-
 }
 
-.image-darkmood-moon {
-  background-image: url("../assets/img/moon.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 
+.backgroundButtonSun{
+  background-color: var(--color-grey-1);
 }
 
-.image-darkmood-sun {
-  border-color: transparent;
-  background-image: url("../assets/img/sun.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-.header-button-darkmood img{
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+.backgroundButtons{
+  background-color: var(--color-grey-1);
+  color: var(--color-grey-3);
   border: none;
-  
 }
 
-img image-darkmood-sun:active, image-darkmood-sun:selected, image-darkmood-sun:visited {
-  border: none;
-  outline: none;
-}
+
+
 

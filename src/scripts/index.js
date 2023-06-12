@@ -1,5 +1,5 @@
 import {products,categories} from "./productsData.js"
-
+import {changeImageDark} from "./theme.js"
 
 function createCard(product) {
   const cardBox = document.createElement("div");
@@ -61,6 +61,7 @@ function createButtons(category){
     const buttonCategory = document.createElement("li")
 
     buttonCategory.classList.add("btn-music")
+    buttonCategory.classList.add("backgroundButtons")
 
     buttonCategory.innerText = category
     buttonCategory.setAttribute("value", category);
@@ -68,6 +69,7 @@ function createButtons(category){
     listButtons.appendChild(buttonCategory)
     
   });
+  changeImageDark();
 }
 createButtons(categories)
 
