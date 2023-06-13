@@ -1,26 +1,5 @@
 import {products,categories} from "./productsData.js"
-import {changeImageDark, cardColor, darkMood} from "./theme.js"
-
-export function myButton() {
-  const buttonDark = document.querySelectorAll('.backgroundButtons');
-  const buttonLight = document.querySelectorAll('.btn-music');
-  let body = document.querySelector(".body")
-
-  if (body.classList.contains("darkmood")){
-    buttonDark.forEach(function(button) {
-      button.addEventListener('clicked', function() {
-        button.classList.toggle('clicked');
-      });
-    });
-  }else{
-    buttonLight.forEach(function(button) {
-      button.addEventListener('click', function() {
-        button.classList.toggle('click');     
-      });
-    });
-  }
-}
-myButton()
+import {cardColor} from "./theme.js"
 
 function createCard(product) {
   const cardBox = document.createElement("div");
@@ -69,28 +48,57 @@ export function renderCards(products) {
     const card = createCard(product);
     cardsContainer.appendChild(card);
   });
-
+  clearClickedButtons()
   cardColor()
 }
 renderCards(products);
 
 
-function createButtons(category){
-  const listButtons = document.querySelector(".group__buttons")
+function createButtons(categories) {
+  const listButtons = document.querySelector(".group__buttons");
+
   categories.forEach(category => {
-    const buttonCategory = document.createElement("li")
-
-    buttonCategory.classList.add("btn-music")
-
-    buttonCategory.innerText = category
+    const buttonCategory = document.createElement("li");
+    buttonCategory.classList.add("btn-music");
+    buttonCategory.innerText = category;
     buttonCategory.setAttribute("value", category);
 
-    listButtons.appendChild(buttonCategory)   
+    buttonCategory.addEventListener("click", () => {
+      const activeButtons = document.querySelectorAll(".btn-music.active");
+      const clickedButtons = document.querySelectorAll(".backgroundButtons.clicked");
+       
+      activeButtons.forEach((button) => {
+        button.classList.remove("active");
+      });     
+      clickedButtons.forEach((button) => {
+        button.classList.remove("clicked");
+      });
+           
+      buttonCategory.classList.add("active");
+      buttonCategory.classList.add("clicked"); 
+    });  
+    listButtons.appendChild(buttonCategory);
   });
-  
+  clearClickedButtons()
 }
-createButtons(categories)
+createButtons(categories);
 
+
+export function clearClickedButtons() {
+  const clickedButtons = document.querySelectorAll(".backgroundButtons.clicked");
+  const activeButtons = document.querySelectorAll(".btn-music.active");
+  let body = document.querySelector("body")
+  let buttonLight = document.querySelectorAll('.btn-music');
+ 
+  if (body.classList.contains("darkmood")) {
+    buttonLight.forEach((button) => {
+      button.classList.remove("clicked");
+    })
+    clickedButtons.forEach((button) => {
+      button.classList.add("clicked");
+    })
+  } 
+}
 
 export function addFilters(categories, products) {
   const buttonCategory = document.querySelectorAll(".btn-music");
@@ -107,7 +115,6 @@ export function addFilters(categories, products) {
     priceParagraph.textContent = `Até R$ ${inputValue}`;
     
     applyFilters();
-
   });
 
   buttonCategory.forEach((button) => {
@@ -120,19 +127,16 @@ export function addFilters(categories, products) {
     });
   });
 
-function applyFilters() {
+  function applyFilters() {
     if (categoryIndex === 0) {
       filteredArray = products.filter(product => product.price <= inputValue)
       
     } else {
-      filteredArray = products.filter(product => product.category === categoryIndex && product.price <= inputValue);
-      
+      filteredArray = products.filter(product => product.category === categoryIndex && product.price <= inputValue);    
     } 
     
     renderCards(filteredArray); 
-
   }
 }
-
 addFilters(categories, products);
 

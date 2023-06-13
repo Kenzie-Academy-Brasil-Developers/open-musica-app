@@ -1,6 +1,5 @@
-import {addFilters, myButton, renderCards} from "./index.js"
-import {products,categories} from "./productsData.js"
-
+import {addFilters, renderCards, clearClickedButtons} from "./index.js"
+import {products} from "./productsData.js"
 
 export function darkMood(){
   const buttonDarkMood = document.querySelector(".header-button-darkmood")
@@ -8,11 +7,10 @@ export function darkMood(){
   
   buttonDarkMood.addEventListener("click",() => {
     body.classList.toggle("darkmood") 
+    renderCards(products);
+    clearClickedButtons()
   })
-  renderCards(products);
-  cardColor()
-  changeImageDark()
-  
+  changeImageDark() 
 }
 darkMood()
 
@@ -35,7 +33,6 @@ export function changeImageDark() {
   let body = document.querySelector(".body")
   let precoInput = document.querySelector("#precoInput")
 
-  
   buttonDarkMood.addEventListener("click", () => {
     buttonDarkMood.classList.toggle("backgroundButtonSun");
     btnsun.classList.toggle("invisible")
@@ -51,7 +48,8 @@ export function changeImageDark() {
     albumAge.forEach(button => {button.classList.toggle("textCardsColor")});
     albumTitle.forEach(button => {button.classList.toggle("textCardsColor")});
     cardValue.forEach(button => {button.classList.toggle("textcolor")});
-
+    renderCards(products);
+    clearClickedButtons()
   });
 }
   
@@ -67,23 +65,18 @@ export function cardColor() {
     divCards.forEach(divCard => {
       divCard.classList.add("colorCards");
     });
-
     cardButton.forEach(button => {
       button.classList.add("buttonsCard");
     });
-
     albumAge.forEach(age => {
       age.classList.add("textCardsColor");
     });
-
     albumTitle.forEach(title => {
       title.classList.add("textCardsColor");
     });
-
     cardValue.forEach(value => {
       value.classList.add("textcolor");
     });
   }
-  
 }
 

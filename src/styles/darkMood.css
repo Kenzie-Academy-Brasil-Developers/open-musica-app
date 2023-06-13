@@ -2,7 +2,6 @@
   background-color: var(--color-grey-0);
 }
 
-
 .backgroundButtonSun{
   background-color: var(--color-grey-1);
 }
@@ -14,6 +13,10 @@
 }
 
 .backgroundButtons:hover{
+  border: 1.5px solid var(--color-grey-9);
+}
+
+.backgroundButtons:active{
   border: 1.5px solid var(--color-grey-9);
 }
 
@@ -30,7 +33,6 @@
 .textcolor{
   color: var(--color-grey-8);
 }
-
 
 .colorCards{
   background-color: var(--color-grey-1);
