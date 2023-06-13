@@ -1,4 +1,26 @@
 import {products,categories} from "./productsData.js"
+import {changeImageDark, cardColor, darkMood} from "./theme.js"
+
+export function myButton() {
+  const buttonDark = document.querySelectorAll('.backgroundButtons');
+  const buttonLight = document.querySelectorAll('.btn-music');
+  let body = document.querySelector(".body")
+
+  if (body.classList.contains("darkmood")){
+    buttonDark.forEach(function(button) {
+      button.addEventListener('clicked', function() {
+        button.classList.toggle('clicked');
+      });
+    });
+  }else{
+    buttonLight.forEach(function(button) {
+      button.addEventListener('click', function() {
+        button.classList.toggle('click');     
+      });
+    });
+  }
+}
+myButton()
 
 function createCard(product) {
   const cardBox = document.createElement("div");
@@ -38,7 +60,7 @@ function createCard(product) {
   return cardBox;
 }
 
-function renderCards(products) {
+export function renderCards(products) {
   const cardsContainer = document.querySelector(".cards__container");
 
   cardsContainer.innerHTML = "";
@@ -47,6 +69,8 @@ function renderCards(products) {
     const card = createCard(product);
     cardsContainer.appendChild(card);
   });
+
+  cardColor()
 }
 renderCards(products);
 
@@ -63,6 +87,7 @@ function createButtons(category){
 
     listButtons.appendChild(buttonCategory)   
   });
+  
 }
 createButtons(categories)
 
@@ -80,51 +105,34 @@ export function addFilters(categories, products) {
     e.preventDefault()
     inputValue = inputPrice.value;
     priceParagraph.textContent = `Até R$ ${inputValue}`;
+    
     applyFilters();
+
   });
 
   buttonCategory.forEach((button) => {
     button.addEventListener("click", () => {
       categoryIndex = categories.findIndex(category => category === button.innerText);
+      
       applyFilters();
+      
       inputPrice.value = inputValue;
     });
   });
 
-  function applyFilters() {
+function applyFilters() {
     if (categoryIndex === 0) {
-      filteredArray = products.filter(product => product.price <= inputValue);
+      filteredArray = products.filter(product => product.price <= inputValue)
+      
     } else {
       filteredArray = products.filter(product => product.category === categoryIndex && product.price <= inputValue);
+      
     } 
-    renderCards(filteredArray);  
+    
+    renderCards(filteredArray); 
+
   }
 }
+
 addFilters(categories, products);
 
-export function myButton() {
-  const buttonDark = document.querySelectorAll('.backgroundButtons');
-  const buttonLight = document.querySelectorAll('.btn-music');
-  let body = document.querySelector(".body")
-
-  if (body.classList.contains("darkmood")){
-    buttonDark.forEach(function(button) {
-      button.addEventListener('click', function() {
-        button.classList.toggle('clicked');
-        buttonLight.forEach(function(lightButton) {
-          lightButton.classList.remove('click'); 
-        });
-      });
-    });
-  }else{
-    buttonLight.forEach(function(button) {
-      button.addEventListener('click', function() {
-        button.classList.toggle('click');
-        buttonDark.forEach(function(darkButton) {
-          darkButton.classList.remove('clicked'); 
-        });
-      });
-    });
-  }
-}
-myButton()
