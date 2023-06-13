@@ -80,3 +80,13 @@ export function cardColor() {
   }
 }
 
+function localStorageDarkmood() {
+  const buttonDarkMood = document.querySelector(".header-button-darkmood");
+
+  buttonDarkMood.addEventListener("click", () => {
+    const darkMode = document.body.classList.contains("darkmood");
+
+    localStorage.setItem("darkModeActived", darkMode);
+  });
+}
+localStorageDarkmood()
